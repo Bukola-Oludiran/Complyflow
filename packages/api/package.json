@@ -1,0 +1,21 @@
+{
+  "name": "@complyflow/api",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "complyflow": "./dist/main.js"
+  },
+  "scripts": {
+    "dev": "npx tsx --tsconfig ../../tsconfig.dev.json src/main.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@complyflow/shared": "0.1.0",
+    "@complyflow/ingestion": "0.1.0",
+    "@complyflow/graph-builder": "0.1.0",
+    "@complyflow/policy-engine": "0.1.0",
+    "graphreact": "file:../../../GraphReact/graphreact"
+  }
+}

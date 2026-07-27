@@ -1,0 +1,14 @@
+{
+  "name": "@complyflow/graph-builder",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@complyflow/shared": "0.1.0",
+    "graphreact": "file:../../../GraphReact/graphreact"
+  }
+}

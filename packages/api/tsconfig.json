@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "paths": {
+      "graphreact": ["../../../GraphReact/graphreact/dist/core/index.d.ts"],
+      "@complyflow/graph-builder": ["../graph-builder/dist/index.d.ts"],
+      "@complyflow/policy-engine": ["../policy-engine/dist/index.d.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "src/**/*.test.ts"]
+}
