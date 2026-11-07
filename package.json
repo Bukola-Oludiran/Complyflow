@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "npm run dev -w packages/api",
-    "build": "npm run build --workspaces",
+    "build": "npm run build -w packages/graphreact -w packages/shared -w packages/ingestion -w packages/sdk -w packages/graph-builder -w packages/policy-engine -w packages/api",
     "test": "vitest run",
     "test:watch": "vitest"
   },
