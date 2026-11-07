@@ -31,7 +31,7 @@ export function App() {
                 onTenantIdChange={setTenantId}
                 status={status.data}
                 lastUpdated={topology.lastUpdated}
-                apiUrl={API_BASE_URL}
+                apiUrl={API_BASE_URL || 'local API via proxy'}
             />
             <main className="flex flex-1 overflow-hidden">
                 <section className="flex-1 overflow-hidden">

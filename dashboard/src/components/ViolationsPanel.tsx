@@ -44,7 +44,7 @@ export function ViolationsPanel({ violations, total }: ViolationsPanelProps) {
                                     >
                                         {v.severity}
                                     </span>
-                                    <span className="text-[10px] text-neutral-500">{formatTimestamp(v.timestamp)}</span>
+                                    <span className="text-[10px] text-neutral-500">{formatTimestamp(v.detectedAt)}</span>
                                 </div>
                                 <p className="mt-2 text-sm text-neutral-200">{v.title}</p>
                                 <p className="mt-1 font-mono text-[11px] text-neutral-500">

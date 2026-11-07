@@ -21,7 +21,7 @@ export interface ComplianceViolation {
     description?: string;
     service?: string;
     resource?: string;
-    timestamp: number;
+    detectedAt: number;
 }
 
 export interface ViolationsResponse {

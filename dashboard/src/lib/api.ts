@@ -1,12 +1,12 @@
 import type { CytoscapeElements, ViolationsResponse, StatusResponse } from '../types/api';
 
 /**
- * Base URL of the ComplyFlow REST API. Baked at build time via Vite env vars,
- * defaults to local dev for `npm run dev`.
+ * Base URL of the ComplyFlow REST API. Baked at build time via Vite env vars.
+ * When unset, requests go to this origin's /api, which the Vite dev and
+ * preview servers proxy to the local API (see vite.config.ts).
  */
 export const API_BASE_URL =
-    (import.meta.env.VITE_COMPLYFLOW_API_URL as string | undefined)?.replace(/\/$/, '') ??
-    'http://localhost:3000';
+    (import.meta.env.VITE_COMPLYFLOW_API_URL as string | undefined)?.replace(/\/$/, '') ?? '';
 
 async function authedFetch(path: string, tenantId: string): Promise<Response> {
     const res = await fetch(`${API_BASE_URL}${path}`, {
