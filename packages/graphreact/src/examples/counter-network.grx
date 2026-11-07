@@ -1,0 +1,15 @@
+<!-- Counter Network: Fan-in aggregation pattern.
+     Two counters feed into an aggregator, which feeds a logger.
+     Demonstrates multi-parent and data flow. -->
+<Graph id="counter-network">
+  <Aggregator id="agg">
+    <Counter id="counter-a" initialCount={0} label="Alpha" />
+    <Counter id="counter-b" initialCount={10} label="Beta" />
+  </Aggregator>
+
+  <!-- Logger also receives from both counters (multi-parent) -->
+  <Logger id="logger">
+    <Counter id="counter-a" />
+    <Counter id="counter-b" />
+  </Logger>
+</Graph>

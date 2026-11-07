@@ -4,7 +4,7 @@ import path from 'path';
 export default defineConfig({
   resolve: {
     alias: {
-      'graphreact': path.resolve(__dirname, '../GraphReact/graphreact/src/core/index.ts'),
+      'graphreact': path.resolve(__dirname, 'packages/graphreact/src/core/index.ts'),
       '@complyflow/shared': path.resolve(__dirname, 'packages/shared/src/index.ts'),
       '@complyflow/sdk': path.resolve(__dirname, 'packages/sdk/src/index.ts'),
       '@complyflow/ingestion': path.resolve(__dirname, 'packages/ingestion/src/index.ts'),

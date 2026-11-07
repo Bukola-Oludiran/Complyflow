@@ -1,0 +1,9 @@
+<!-- Pipeline: A linear chain of processing nodes.
+     Data flows: Source → Transform → Sink -->
+<Graph id="pipeline">
+  <Source id="source">
+    <Transform id="transform">
+      <Sink id="sink" />
+    </Transform>
+  </Source>
+</Graph>

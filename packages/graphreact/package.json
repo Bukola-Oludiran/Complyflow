@@ -1,0 +1,23 @@
+{
+  "name": "graphreact",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A graph-based reactive compute runtime with React-like DX",
+  "type": "module",
+  "main": "dist/core/index.js",
+  "types": "dist/core/index.d.ts",
+  "bin": {
+    "grx": "./dist/cli/cli.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"for (const f of ['graphreact_linalg.js', 'graphreact_linalg_bg.wasm']) require('fs').copyFileSync('src/core/algorithms/linalg/' + f, 'dist/core/algorithms/linalg/' + f)\"",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "graph",
+    "reactive",
+    "runtime",
+    "graphml"
+  ]
+}

@@ -16,6 +16,6 @@
     "@complyflow/ingestion": "0.1.0",
     "@complyflow/graph-builder": "0.1.0",
     "@complyflow/policy-engine": "0.1.0",
-    "graphreact": "file:../../../GraphReact/graphreact"
+    "graphreact": "0.1.0"
   }
 }

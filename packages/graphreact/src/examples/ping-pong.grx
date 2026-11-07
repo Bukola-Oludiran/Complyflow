@@ -1,0 +1,10 @@
+<!-- Ping-Pong: Two nodes bouncing messages in a cycle.
+     TTL prevents infinite loops. -->
+<Graph id="ping-pong">
+  <Ping id="ping">
+    <Pong id="pong" />
+  </Ping>
+
+  <!-- Explicit edge with TTL limit for cycle protection -->
+  <edge source="ping" target="pong" ttl={5} />
+</Graph>

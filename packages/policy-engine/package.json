@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "@complyflow/shared": "0.1.0",
-    "graphreact": "file:../../../GraphReact/graphreact"
+    "graphreact": "0.1.0"
   }
 }

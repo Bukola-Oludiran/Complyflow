@@ -8,7 +8,7 @@
       "@complyflow/graph-builder": ["./packages/graph-builder/src/index.ts"],
       "@complyflow/policy-engine": ["./packages/policy-engine/src/index.ts"],
       "@complyflow/api": ["./packages/api/src/index.ts"],
-      "graphreact": ["../GraphReact/graphreact/src/core/index.ts"]
+      "graphreact": ["./packages/graphreact/src/core/index.ts"]
     }
   },
   "include": ["packages/*/src/**/*.ts"]
