@@ -147,9 +147,10 @@ export class TenantManager {
   }
 
   private createTenantGraph(tenantId: string): TenantGraph {
-    // Per-tenant violation callback closure
+    // Per-tenant violation callback closure. Topology policies query the graph
+    // rather than a single event, so they don't know the tenant; stamp it here.
     const onViolation = this.options.onViolation
-      ? (v: ComplianceViolation) => this.options.onViolation!(tenantId, v)
+      ? (v: ComplianceViolation) => this.options.onViolation!(tenantId, v.tenantId ? v : { ...v, tenantId })
       : undefined;
 
     const { graph, scheduler } = createGraph(`tenant-${tenantId}`, (g) => {

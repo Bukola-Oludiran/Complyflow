@@ -84,7 +84,7 @@ export const HipaaPhiDataFlowPath = defineNode('HipaaPhiDataFlowPath', () => {
     for (const finding of findings) {
       emit('violation', {
         id: `hipaa-dfp-${++violationCounter}`,
-        tenantId: '', // filled by the collector context
+        tenantId: '', // filled by TenantManager
         detectedAt: Date.now(),
         evidence: [],
         ...finding,

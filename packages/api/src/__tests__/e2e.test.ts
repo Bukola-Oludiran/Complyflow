@@ -174,6 +174,12 @@ describe('End-to-End: SDK → OTLP → Graph → Policy → Violation → API', 
     // Clear the store for this test
     store.clear();
 
+    // Use a fresh tenant: the first test left non-compliant PHI access in
+    // test-tenant's topology, which topology policies re-report on any change.
+    for (const policy of HIPAA_POLICIES) {
+      manager.addPolicyNode('clean-tenant', policy.nodeId, policy.definition, policy.acceptsTypes);
+    }
+
     const otlpPayload: OtlpExportTraceServiceRequest = {
       resourceSpans: [{
         resource: {
@@ -207,7 +213,7 @@ describe('End-to-End: SDK → OTLP → Graph → Policy → Violation → API', 
       headers: {
         'Content-Type': 'application/json',
         'x-complyflow-api-key': 'test-api-key',
-        'x-complyflow-tenant-id': 'test-tenant',
+        'x-complyflow-tenant-id': 'clean-tenant',
       },
       body: JSON.stringify(otlpPayload),
     });
@@ -215,7 +221,7 @@ describe('End-to-End: SDK → OTLP → Graph → Policy → Violation → API', 
     await new Promise(resolve => setTimeout(resolve, 200));
 
     const res = await fetch(`http://127.0.0.1:${API_PORT}/api/v1/violations`, {
-      headers: { 'x-complyflow-tenant-id': 'test-tenant' },
+      headers: { 'x-complyflow-tenant-id': 'clean-tenant' },
     });
     const body = await res.json();
 

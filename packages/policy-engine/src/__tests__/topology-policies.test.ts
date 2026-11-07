@@ -129,4 +129,18 @@ describe('Topology-Aware HIPAA Policies', () => {
       expect(v).toHaveLength(0);
     });
   });
+
+  describe('Tenant attribution', () => {
+    it('stamps the tenant ID on topology violations', async () => {
+      const { manager: m, violations } = setupTenantWithAllPolicies();
+      manager = m;
+
+      manager.routeEvents('tenant-1', [makeEvent({ metadata: {} })]);
+      await new Promise(resolve => setTimeout(resolve, 200));
+
+      const v = violations.filter(v => v.policyId === 'hipaa-phi-access-scope');
+      expect(v.length).toBeGreaterThanOrEqual(1);
+      expect(v.every(x => x.tenantId === 'tenant-1')).toBe(true);
+    });
+  });
 });
